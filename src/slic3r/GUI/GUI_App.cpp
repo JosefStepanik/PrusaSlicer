@@ -158,7 +158,7 @@ public:
             memDC.SelectObject(bitmap);
 
             memDC.SetFont(m_action_font);
-            memDC.SetTextForeground(wxColour(237, 107, 33));
+            memDC.SetTextForeground(wxColour(117, 176, 89));
             memDC.DrawText(text, int(m_scale * 60), m_action_line_y_position);
 
             memDC.SelectObject(wxNullBitmap);
@@ -223,7 +223,7 @@ public:
         memDc.DrawBitmap(logo_bmp, margin, margin, true);
 
         // draw the (white) labels inside of our black box (at the left of the splashscreen)
-        memDc.SetTextForeground(wxColour(255, 255, 255));
+        memDc.SetTextForeground(wxColour(173, 209, 159));
 
         memDc.SetFont(m_constant_text.title_font);
         memDc.DrawLabel(m_constant_text.title,   banner_rect, wxALIGN_TOP | wxALIGN_LEFT);
@@ -272,8 +272,8 @@ private:
 
             // credits infornation
             credits = title + " " +
-                _L("is based on Slic3r by Alessandro Ranellucci and the RepRap community.") + "\n" +
-                _L("Developed by Prusa Research.") + "\n\n" +
+                _L("is based on PrusaSlicer by PrusaResearch and Slic3r by Alessandro Ranellucci and the RepRap community.") + "\n" +
+                _L("Developed by  IQS nano.") + "\n\n" +
                 title + " " + _L("is licensed under the") + " " + _L("GNU Affero General Public License, version 3") + ".\n\n" +
                 _L("Contributions by Vojtech Bubnik, Enrico Turri, Oleksandra Iushchenko, Tamas Meszaros, Lukas Matena, Vojtech Kral, David Kocik and numerous others.") + "\n\n" +
                 _L("Artwork model by Creative Tools");
@@ -1194,7 +1194,7 @@ bool GUI_App::on_init_inner()
     SplashScreen* scrn = nullptr;
     if (app_config->get_bool("show_splash_screen")) {
         // make a bitmap with dark grey banner on the left side
-        wxBitmap bmp = SplashScreen::MakeBitmap(wxBitmap(from_u8(var(is_editor() ? "splashscreen.jpg" : "splashscreen-gcodepreview.jpg")), wxBITMAP_TYPE_JPEG));
+        wxBitmap bmp = SplashScreen::MakeBitmap(wxBitmap(from_u8(var(is_editor() ? "Applications-iqsnano.jpg" : "Applications-iqsnano.jpg")), wxBITMAP_TYPE_JPEG));
 
         // Detect position (display) to show the splash screen
         // Now this position is equal to the mainframe position
@@ -1453,7 +1453,7 @@ const wxColour GUI_App::get_label_default_clr_system()
 
 const wxColour GUI_App::get_label_default_clr_modified()
 {
-    return dark_mode() ? wxColour(253, 111, 40) : wxColour(252, 77, 1);
+    return dark_mode() ? wxColour(253, 111, 40) : wxColour(218, 216, 2);
 }
 
 const std::vector<std::string> GUI_App::get_mode_default_palette()
@@ -1472,9 +1472,9 @@ void GUI_App::init_ui_colours()
     m_color_label_default           = is_dark_mode ? wxColour(250, 250, 250): wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOWTEXT);
     m_color_highlight_label_default = is_dark_mode ? wxColour(230, 230, 230): wxSystemSettings::GetColour(/*wxSYS_COLOUR_HIGHLIGHTTEXT*/wxSYS_COLOUR_WINDOWTEXT);
     m_color_highlight_default       = is_dark_mode ? wxColour(78, 78, 78)   : wxSystemSettings::GetColour(wxSYS_COLOUR_3DLIGHT);
-    m_color_hovered_btn_label       = is_dark_mode ? wxColour(253, 111, 40) : wxColour(252, 77, 1);
+    m_color_hovered_btn_label       = is_dark_mode ? wxColour(253, 111, 40) : wxColour(253, 111, 40);
     m_color_default_btn_label       = is_dark_mode ? wxColour(255, 181, 100): wxColour(203, 61, 0);
-    m_color_selected_btn_bg         = is_dark_mode ? wxColour(95, 73, 62)   : wxColour(228, 220, 216);
+    m_color_selected_btn_bg         = is_dark_mode ? wxColour(95, 73, 62)   : wxColour(95, 73, 62);
 #else
     m_color_label_default = wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOWTEXT);
 #endif
