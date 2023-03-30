@@ -482,6 +482,8 @@ static const FileWildcards file_wildcards_by_type[FT_SIZE] = {
     /* FT_SL1 */     { "Masked SLA files"sv, { ".sl1"sv, ".sl1s"sv, ".pwmx"sv } },
 
     /* FT_ZIP */     { "Zip files"sv, { ".zip"sv } },
+
+    /* FT_IQP */     {"IQP file"sv, {".iqp"sv} },
 };
 
 #if ENABLE_ALTERNATIVE_FILE_WILDCARDS_GENERATOR

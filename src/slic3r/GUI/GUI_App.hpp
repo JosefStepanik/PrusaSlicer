@@ -52,8 +52,7 @@ class GalleryDialog;
 
 
 
-enum FileType
-{
+enum FileType {
     FT_STL,
     FT_OBJ,
     FT_OBJECT,
@@ -74,6 +73,8 @@ enum FileType
     FT_SL1,
 
     FT_ZIP,
+
+    FT_IQP,
 
     FT_SIZE,
 };
