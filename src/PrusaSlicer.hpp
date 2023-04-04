@@ -8,12 +8,14 @@ namespace Slic3r {
 
 namespace IO {
 	enum ExportFormat : int { 
+        IQP,
         AMF, 
         OBJ, 
         STL, 
         // SVG, 
         TMF, 
-        Gcode
+        Gcode,
+        
     };
 }
 

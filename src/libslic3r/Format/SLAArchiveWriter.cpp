@@ -3,6 +3,7 @@
 #include "SL1.hpp"
 #include "SL1_SVG.hpp"
 #include "pwmx.hpp"
+#include "IQP.hpp"
 
 #include "libslic3r/libslic3r.h"
 
@@ -21,8 +22,10 @@ struct ArchiveEntry {
 };
 
 static const std::map<std::string, ArchiveEntry> REGISTERED_ARCHIVES {
-    {
-        "SL1",
+    {   "IQP" , 
+        { "iqp", [] (const auto &cfg) { return std::make_unique<IQPArchive>(cfg); } }
+    },
+    {   "SL1",
         { "sl1",  [] (const auto &cfg) { return std::make_unique<SL1Archive>(cfg); } }
     },
     {

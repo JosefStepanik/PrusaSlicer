@@ -73,6 +73,8 @@ enum FileType {
     FT_SL1,
 
     FT_ZIP,
+    
+    FT_IQP,
 
     FT_IQP,
 
