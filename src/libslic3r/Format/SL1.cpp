@@ -193,6 +193,10 @@ void SL1Archive::export_print(Zipper               &zipper,
             prjname;
 
     ConfMap iniconf, slicerconf;
+    // Pepek version new. ->
+    ConfMap iqp;
+    // <- Pepek version new.
+
     fill_iniconf(iniconf, print);
 
     iniconf["jobDir"] = project;
@@ -211,12 +215,23 @@ void SL1Archive::export_print(Zipper               &zipper,
             std::string imgname = project + string_printf("%.5d", i++) + "." +
                                   rst.extension();
 
+            // Pepek version new. ->
+            iqp[imgname];
+            // <- Pepek version new.
+
             zipper.add_entry(imgname.c_str(), rst.data(), rst.size());
         }
 
         for (const ThumbnailData& data : thumbnails)
             if (data.is_valid())
                 write_thumbnail(zipper, data);
+
+        // Pepek version new. ->
+        iqp["NItems"] = i;
+        iqp["ZStep"] = get_cfg_value(print.full_print_config(), "layer_height");
+        zipper.add_entry(project + ".iqp");
+        zipper << to_ini(iqp);
+        // <- Pepek version new.
 
         zipper.finalize();
     } catch(std::exception& e) {
